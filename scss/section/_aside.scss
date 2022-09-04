@@ -21,23 +21,24 @@
     &--btn {
       border: 0;
       background: transparent;
-      
+
       &:hover {
         cursor: pointer;
       }
+      &:focus {
+        outline: 0;
+      }
     }
-    
+
     &--input {
       font-family: inherit;
       font-size: map-get($fontSize, textParagraph);
       color: var(--blue);
       letter-spacing: 0.14px;
+     
+    // 
+
       
-      &:focus
-      {
-        background: transparent;
-        outline: 0;
-      }
 
       &::placeholder {
         color: var(--blue);

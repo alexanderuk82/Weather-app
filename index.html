@@ -19,11 +19,12 @@
       <aside class="weather">
         <div class="weather__container">
           <!-- Search form -->
-          <form class="weather__search">
+          <form autocomplete="off"  class="weather__search" >
             <input
               type="text"
               class="weather__search--input"
               placeholder="Start typing your city..."
+              autocomplete="false"
             />
 
             <button type="submit" class="weather__search--btn">
@@ -43,14 +44,11 @@
             <div class="weather__temperature__result">
               <img src="img/cloudly-icon.svg" alt="" />
               <h1 class="h1">12 <sup>&#8728;c</sup></h1>
-                <p>
-                    monday, 
+              <p>
+                monday,
 
-                    <span>
-                        14:00 pm
-                    </span>
-                </p>
-
+                <span> 14:00 pm </span>
+              </p>
             </div>
           </div>
           <div class="weather__approx">approximadamente</div>
