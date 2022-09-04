@@ -1,0 +1,86 @@
+@use '../abstracts/' as *;
+
+.weather {
+  &__container {
+    background-color: var(--light-blue);
+    height: 100vh;
+    padding-inline: 2rem;
+    padding-top: 1rem;
+    display: grid;
+    row-gap: 2rem;
+    align-content: start;
+  }
+
+  &__search {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.2rem 1.7rem;
+    border-bottom: 1px solid var(--blue);
+    color: var(--blue);
+    &--input,
+    &--btn {
+      border: 0;
+      background: transparent;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    &--input {
+      font-family: inherit;
+      font-size: map-get($fontSize, textParagraph);
+      color: var(--blue);
+      letter-spacing: 0.14px;
+
+      &:focus {
+        outline: 0;
+      }
+
+      &::placeholder {
+        color: var(--blue);
+        opacity: 0.63;
+      }
+    }
+  }
+
+  &__temperature {
+    &__location {
+      display: flex;
+      font-size: map-get($fontSize, text-medium);
+      align-items: center;
+      & > p {
+        margin-left: 0.5rem;
+        text-transform: uppercase;
+      }
+    }
+
+    &__result {
+      margin: 1.5rem 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      h1 {
+        font-size: map-get($fontSize, text-h1);
+        font-weight: map-get($fontWeight, light);
+        margin: 1rem 0;
+        sup {
+          font-family: inherit;
+          margin-left: -2rem;
+        }
+      }
+
+      p {
+        font-size: map-get($fontSize, text-large);
+        text-transform: capitalize;
+        font-weight: map-get($fontWeight, medium);
+        span {
+          text-transform: uppercase;
+          color: var(--blue);
+          font-weight: map-get($fontWeight, bold);
+        }
+      }
+    }
+  }
+}

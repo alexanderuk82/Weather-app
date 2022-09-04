@@ -1,5 +1,28 @@
-:root{
+:root {
+  // Generals colours for this project
+  --blue-500: #44a0db;
+  --blue: #10519e;
+  --light-blue: #d0eefa;
+  --dark-gray: #949494;
+  --dark-blue: #0e315a;
 
-    --blue: darkblue;
-
+  //fonts main styles
+  --bodyFont: 'Nunito', sans-serif;
+  --numberFont: 'Open Sans', sans-serif;
 }
+
+$fontSize: (
+  'text-medium': 1.4rem,
+  'text-large':3rem,
+  'text-h1': 10rem,
+  'textParagraph': 2rem,
+   
+);
+
+$fontWeight: (
+  'medium': 500,
+  'light': 300,
+  'bold': 600,
+
+  
+);

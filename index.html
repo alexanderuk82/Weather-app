@@ -5,15 +5,64 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/style.css" />
+
+    <!-- Project font form google -->
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;500;600&family=Open+Sans:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
     <title>Weather app</title>
   </head>
   <body>
+    <div class="container">
+      <aside class="weather">
+        <div class="weather__container">
+          <!-- Search form -->
+          <form class="weather__search">
+            <input
+              type="text"
+              class="weather__search--input"
+              placeholder="Start typing your city..."
+            />
 
+            <button type="submit" class="weather__search--btn">
+              <img src="img/search-icon.svg" alt="search" />
+            </button>
+          </form>
 
-    <h1>
-        hola
+          <!-- results weather -->
 
-    </h1>
+          <div class="weather__temperature">
+            <!-- location -->
+            <div class="weather__temperature__location">
+              <img src="img/pin.svg" alt="location" />
+              <p>london, uk</p>
+            </div>
+            <!-- result numbers and display -->
+            <div class="weather__temperature__result">
+              <img src="img/cloudly-icon.svg" alt="" />
+              <h1 class="h1">12 <sup>&#8728;c</sup></h1>
+                <p>
+                    monday, 
+
+                    <span>
+                        14:00 pm
+                    </span>
+                </p>
+
+            </div>
+          </div>
+          <div class="weather__approx">approximadamente</div>
+          <div class="weather__maxMin">temperature mmax and min</div>
+        </div>
+      </aside>
+
+      <main class="details">
+        <div class="details__container">details</div>
+      </main>
+    </div>
+
     <script src="js/main.js"></script>
   </body>
 </html>
