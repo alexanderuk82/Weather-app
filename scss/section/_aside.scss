@@ -21,19 +21,21 @@
     &--btn {
       border: 0;
       background: transparent;
-
+      
       &:hover {
         cursor: pointer;
       }
     }
-
+    
     &--input {
       font-family: inherit;
       font-size: map-get($fontSize, textParagraph);
       color: var(--blue);
       letter-spacing: 0.14px;
-
-      &:focus {
+      
+      &:focus
+      {
+        background: transparent;
         outline: 0;
       }
 
