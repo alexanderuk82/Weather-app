@@ -66,7 +66,7 @@
         font-size: map-get($fontSize, text-h1);
         font-weight: map-get($fontWeight, light);
         margin: 1rem 0;
-      
+
         sup {
           font-family: inherit;
           margin-left: -2rem;
@@ -102,10 +102,38 @@
       p {
         font-weight: map-get($fontWeight, bold);
         margin-left: 1.5rem;
-
+        text-transform: capitalize;
         span {
           font-size: map-get($fontSize, text-h4);
         }
+      }
+    }
+  }
+
+  &__maxMin {
+    background-color: var(--dark-blue);
+    margin: 1.9rem 0;
+    padding: 2rem;
+    font-size: map-get($fontSize, textParagraph);
+    border-radius: 1.4rem;
+    &--value{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      p{
+        color: #fff;
+        text-transform:capitalize;
+        display: flex;
+        
+        img{
+          margin-left:.6rem;
+        }
+      }
+      
+      span {
+        color: var(--light-blue);
+        font-size: map-get($fontSize, text-h3);
+        
       }
     }
   }
