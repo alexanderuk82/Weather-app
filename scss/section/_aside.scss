@@ -35,10 +35,8 @@
       font-size: map-get($fontSize, textParagraph);
       color: var(--blue);
       letter-spacing: 0.14px;
-     
-    // 
 
-      
+      //
 
       &::placeholder {
         color: var(--blue);
@@ -68,6 +66,7 @@
         font-size: map-get($fontSize, text-h1);
         font-weight: map-get($fontWeight, light);
         margin: 1rem 0;
+      
         sup {
           font-family: inherit;
           margin-left: -2rem;
@@ -82,6 +81,30 @@
           text-transform: uppercase;
           color: var(--blue);
           font-weight: map-get($fontWeight, bold);
+        }
+      }
+    }
+  }
+
+  &__approx {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+    padding: 2rem 0;
+    border-top: 1px solid var(--blue);
+    border-bottom: 1px solid var(--blue);
+
+    &__condition {
+      display: flex;
+      font-size: map-get($fontSize, text-condition);
+      align-items: center;
+
+      p {
+        font-weight: map-get($fontWeight, bold);
+        margin-left: 1.5rem;
+
+        span {
+          font-size: map-get($fontSize, text-h4);
         }
       }
     }

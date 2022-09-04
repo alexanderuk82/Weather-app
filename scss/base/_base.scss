@@ -6,13 +6,12 @@
   box-sizing: inherit;
 }
 
-
-html{
-
-    font-size: 62.5%;
-    box-sizing: border-box
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
 }
 
 body {
-  font-family: var(--bodyFont); 
+  font-family: var(--bodyFont);
+  color: var(--dark-blue);
 }

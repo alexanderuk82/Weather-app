@@ -19,7 +19,7 @@
       <aside class="weather">
         <div class="weather__container">
           <!-- Search form -->
-          <form autocomplete="off"  class="weather__search" >
+          <form autocomplete="off" class="weather__search">
             <input
               type="text"
               class="weather__search--input"
@@ -51,7 +51,16 @@
               </p>
             </div>
           </div>
-          <div class="weather__approx">approximadamente</div>
+          <div class="weather__approx">
+            <div class="weather__approx__condition">
+              <img src="img/mostly-cloudly.svg" alt="cloudly" />
+              <p>Mostly cloudly</p>
+            </div>
+            <div class="weather__approx__condition">
+              <img src="img/rain-icon.svg" alt="raining" />
+              <p>Rain appr: <span>30%</span></p>
+            </div>
+          </div>
           <div class="weather__maxMin">temperature mmax and min</div>
         </div>
       </aside>
