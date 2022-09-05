@@ -1,0 +1,15 @@
+// Selector mixin for last child element
+/**
+//? EXAMPLE OF THIS FORMULA TO IMPLEMNT
+//** @include notLastChild(m,bottom,0.8);
+**/
+
+@mixin notLastChild($space, $where, $value) {
+  & > * {
+    &:not(:last-child) {
+      @if $space == 'm' {
+        margin-#{$where}: #{$value}rem;
+      }
+    }
+  }
+}

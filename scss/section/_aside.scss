@@ -3,7 +3,6 @@
 .weather {
   &__container {
     background-color: var(--light-blue);
-    height: 100vh;
     padding-inline: 2rem;
     padding-top: 1rem;
     display: grid;
@@ -116,24 +115,25 @@
     padding: 2rem;
     font-size: map-get($fontSize, textParagraph);
     border-radius: 1.4rem;
-    &--value{
+    @include notLastChild(m,bottom,0.8);
+ 
+    &--value {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      p{
+      p {
         color: #fff;
-        text-transform:capitalize;
+        text-transform: capitalize;
         display: flex;
-        
-        img{
-          margin-left:.6rem;
+
+        img {
+          margin-left: 0.6rem;
         }
       }
-      
+
       span {
         color: var(--light-blue);
         font-size: map-get($fontSize, text-h3);
-        
       }
     }
   }
