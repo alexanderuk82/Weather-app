@@ -100,9 +100,12 @@
           <div class="details__slide">
             <div class="swiper mySwiper">
               <div class="swiper-wrapper slide-container">
-                <div class="swiper-slide card">Slide 1</div>
+                <div class="swiper-slide card">
+                  Slide 1 Lorem ipsum dolor sit amet, consectetur adipisicing
+                  elit. Rem dolorem reprehenderit odio officia beatae tempora
+                  numquam ipsum quos commodi culpa?
+                </div>
                 <div class="swiper-slide card">Slide 2</div>
-               
               </div>
               <div class="swiper-pagination"></div>
             </div>
@@ -114,14 +117,13 @@
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 
-
-     <!-- Initialize Swiper -->
+    <!-- Initialize Swiper -->
     <script>
-      var swiper = new Swiper(".mySwiper", {
-        slidesPerView: "auto",
-        spaceBetween: 30,
+      var swiper = new Swiper('.mySwiper', {
+        slidesPerView: 'auto',
+        spaceBetween: 20,
         pagination: {
-          el: ".swiper-pagination",
+          el: '.swiper-pagination',
           clickable: true,
         },
       });
