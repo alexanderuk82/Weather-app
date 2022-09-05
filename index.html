@@ -4,12 +4,19 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Link Swiper's CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
+    />
+
     <link rel="stylesheet" href="css/style.css" />
 
     <!-- Project font form google -->
 
     <link
-      href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;500;600&family=Open+Sans:wght@400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;500;600;700;800&family=Open+Sans:wght@400;500&display=swap"
       rel="stylesheet"
     />
     <title>Weather app</title>
@@ -69,9 +76,7 @@
                 <img src="img/bx-up-arrow-circle.svg" alt="" />
               </p>
 
-             <span>
-                17 <img src="img/celsius.svg" alt="celcius">
-             </span>
+              <span> 17 <img src="img/celsius.svg" alt="celcius" /> </span>
             </div>
             <div class="weather__maxMin--value">
               <p>
@@ -80,18 +85,47 @@
                 <img src="img/bx-up-arrow-circle-2.svg" alt="" />
               </p>
 
-             <span>
-                10 <img src="img/celsius.svg" alt="celcius">
-             </span>
+              <span> 10 <img src="img/celsius.svg" alt="celcius" /> </span>
             </div>
           </div>
         </div>
       </aside>
 
       <main class="details">
-        <div class="details__container">details</div>
+        <div class="details__container">
+          <div class="details__news">
+            <h4 class="h4">today <span>news</span></h4>
+          </div>
+
+          <div class="details__slide">
+            <div class="swiper mySwiper">
+              <div class="swiper-wrapper slide-container">
+                <div class="swiper-slide card">Slide 1</div>
+                <div class="swiper-slide card">Slide 2</div>
+               
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+        </div>
       </main>
     </div>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+
+     <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        slidesPerView: "auto",
+        spaceBetween: 30,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+      });
+    </script>
 
     <script src="js/main.js"></script>
   </body>

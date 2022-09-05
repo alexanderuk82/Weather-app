@@ -1,0 +1,14 @@
+@use '../abstracts/' as *;
+
+.details {
+  margin-top: 4.2rem;
+
+  &__container {
+    padding-inline: 2rem;
+  }
+
+  &__news {
+    @include titleSection;
+    @include sliderCard;
+  }
+}

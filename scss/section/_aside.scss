@@ -111,12 +111,14 @@
 
   &__maxMin {
     background-color: var(--dark-blue);
-    margin: 1.9rem 0;
+    margin: 0.9rem 0;
+    margin-bottom: 3rem;
+
     padding: 2rem;
     font-size: map-get($fontSize, textParagraph);
     border-radius: 1.4rem;
-    @include notLastChild(m,bottom,0.8);
- 
+    @include notLastChild(m, bottom, 0.8);
+
     &--value {
       display: flex;
       align-items: center;

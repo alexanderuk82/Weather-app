@@ -1,3 +1,4 @@
+@use '../abstracts/variables' as *;
 // Selector mixin for last child element
 /**
 //? EXAMPLE OF THIS FORMULA TO IMPLEMNT
@@ -12,4 +13,30 @@
       }
     }
   }
+}
+
+// Title for sections
+
+@mixin titleSection {
+  h4 {
+    font-size: map-get($fontSize, text-h4);
+    text-transform: uppercase;
+
+    span {
+      color: var(--blue);
+      font-weight: map-get($fontWeight, extra-bold);
+      text-decoration: underline;
+    }
+  }
+}
+
+//Styles for cards content
+
+@mixin sliderCard {
+
+   .card {
+        padding: 3rem 1.5rem;
+        width: 80%; 
+        
+      }
 }
