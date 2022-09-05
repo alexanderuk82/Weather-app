@@ -13,6 +13,13 @@
   width: 100%;
 }
 
+.swiper-pagination-bullet-active {
+  opacity: var(--swiper-pagination-bullet-opacity, 1);
+  background: var(--dark-blue,var(--dark-gray));
+  height: 1rem;
+  width: 1rem;
+}
+
 .slide-container {
   @include sliderCard;
 }

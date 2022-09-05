@@ -40,5 +40,56 @@
     border-radius: 1.8rem;
     margin: 4rem 0.5rem;
     margin-top: 1.9rem;
+    display: grid;
+    row-gap: 1.8rem;
+    &__top {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      font-size: map-get($fontSize, text-medium);
+      &__resource {
+        background-color: var(--blue);
+        color: #fff;
+        border-radius: 10rem;
+        padding: 0.7rem 1rem;
+      }
+
+      &__date {
+        display: flex;
+        align-items: center;
+        img {
+          width: 1.5rem;
+          margin-right: 0.5rem;
+        }
+      }
+    }
+
+    &__content {
+      &--text {
+        h5 {
+          font-size: map-get($fontSize, textParagraph);
+          margin-bottom: 0.5rem;
+        }
+
+        p {
+          font-size: map-get($fontSize, text-h5);
+        }
+      }
+
+      &--img {
+        display: none;
+      }
+    }
+
+    &__link {
+      text-transform: capitalize;
+      justify-self: end;
+
+      a {
+        font-size: map-get($fontSize, text-h5);
+        color: var(--blue-500);
+      }
+    }
   }
 }
