@@ -9,12 +9,16 @@
   //fonts main styles
   --bodyFont: 'Nunito', sans-serif;
   --numberFont: 'Open Sans', sans-serif;
+
+  //shadows
+  --box-shadow: 0px 2px 4rem rgba(14, 49, 90, 0.049);
 }
 
 $fontSize: (
   'text-medium': 1.4rem,
   'text-large': 3rem,
   'text-h1': 10rem,
+  'text-h2': 5rem,
   'text-h3': 3.2rem,
   'text-h4': 2.5rem,
   'text-h5': 1.5rem,
@@ -24,6 +28,7 @@ $fontSize: (
 
 $fontWeight: (
   'medium': 500,
+  'regular': 400,
   'light': 300,
   'bold': 600,
   'extra-bold': 800,

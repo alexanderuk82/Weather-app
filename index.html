@@ -16,7 +16,7 @@
     <!-- Project font form google -->
 
     <link
-      href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;500;600;700;800&family=Open+Sans:wght@400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&family=Open+Sans:wght@400;500&display=swap"
       rel="stylesheet"
     />
     <title>Weather app</title>
@@ -95,88 +95,107 @@
         <div class="details__container">
           <div class="details__news">
             <h4 class="h4">today <span>news</span></h4>
+
+            <div class="details__slide">
+              <div class="swiper mySwiper">
+                <div class="swiper-wrapper slide-container">
+                  <!-- cards news here -->
+                  <div class="swiper-slide card">
+                    <div class="card__top">
+                      <div class="card__top__resource">
+                        <p>BBC news</p>
+                      </div>
+
+                      <div class="card__top__date">
+                        <img src="img/calendar.svg" alt="cdate-news" />
+                        <span>25/08/2022</span>
+                      </div>
+                    </div>
+
+                    <div class="card__content">
+                      <div class="card__content--text">
+                        <h5 class="h5">
+                          Covid Will Kill 100,000 More By End Of Olympics, Says
+                          WHO - CNN"
+                        </h5>
+
+                        <p>
+                          As The Tokyo Olympics Get Underway And Rich Countries
+                          Drop Restrictions Lorem ipsum dolor sit amet.
+                        </p>
+                      </div>
+
+                      <div class="card__content--img">
+                        <img src="img/img.svg" alt="news-image" />
+                      </div>
+                    </div>
+
+                    <div class="card__link">
+                      <a href="https://www.google.co.uk" target="_blank"
+                        >read more</a
+                      >
+                    </div>
+                  </div>
+
+                  <!-- Cards news here -->
+                  <div class="swiper-slide card">
+                    <div class="card__top">
+                      <div class="card__top__resource">
+                        <p>BBC news</p>
+                      </div>
+
+                      <div class="card__top__date">
+                        <img src="img/calendar.svg" alt="cdate-news" />
+                        <span>25/08/2022</span>
+                      </div>
+                    </div>
+
+                    <div class="card__content">
+                      <div class="card__content--text">
+                        <h5 class="h5">
+                          Covid Will Kill 100,000 More By End Of Olympics, Says
+                          WHO - CNN"
+                        </h5>
+
+                        <p>
+                          As The Tokyo Olympics Get Underway And Rich Countries
+                          Drop Restrictions Lorem ipsum dolor sit amet.
+                        </p>
+                      </div>
+
+                      <div class="card__content--img">
+                        <img src="img/img.svg" alt="news-image" />
+                      </div>
+                    </div>
+
+                    <div class="card__link">
+                      <a href="https://www.google.co.uk" target="_blank"
+                        >read more</a
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-pagination"></div>
+              </div>
+            </div>
           </div>
 
-          <div class="details__slide">
-            <div class="swiper mySwiper">
-              <div class="swiper-wrapper slide-container">
-                <!-- cards news here -->
-                <div class="swiper-slide card">
-                  <div class="card__top">
-                    <div class="card__top__resource">
-                      <p>BBC news</p>
-                    </div>
+          <div class="details__highlights">
+            <h4 class="h4">today <span>highlights</span></h4>
 
-                    <div class="card__top__date">
-                      <img src="img/calendar.svg" alt="cdate-news" />
-                      <span>25/08/2022</span>
-                    </div>
-                  </div>
+            <div class="details__highlights__container">
+              <div class="details__highlights--item">
+                <p>wind speed</p>
+                <h2 class="h2">7.70 <sup>km/h</sup></h2>
 
-                  <div class="card__content">
-                    <div class="card__content--text">
-                      <h5 class="h5">
-                        Covid Will Kill 100,000 More By End Of Olympics, Says
-                        WHO - CNN"
-                      </h5>
-
-                      <p>
-                        As The Tokyo Olympics Get Underway And Rich Countries
-                        Drop Restrictions Lorem ipsum dolor sit amet.
-                      </p>
-                    </div>
-
-                    <div class="card__content--img">
-                      <img src="img/img.svg" alt="news-image" />
-                    </div>
-                  </div>
-
-                  <div class="card__link">
-                    <a href="https://www.google.co.uk" target="_blank"
-                      >read more</a
-                    >
-                  </div>
-                </div>
-
-                <!-- Cards news here -->
-                <div class="swiper-slide card">
-                  <div class="card__top">
-                    <div class="card__top__resource">
-                      <p>BBC news</p>
-                    </div>
-
-                    <div class="card__top__date">
-                      <img src="img/calendar.svg" alt="cdate-news" />
-                      <span>25/08/2022</span>
-                    </div>
-                  </div>
-
-                  <div class="card__content">
-                    <div class="card__content--text">
-                      <h5 class="h5">
-                        Covid Will Kill 100,000 More By End Of Olympics, Says
-                        WHO - CNN"
-                      </h5>
-
-                      <p>
-                        As The Tokyo Olympics Get Underway And Rich Countries
-                        Drop Restrictions Lorem ipsum dolor sit amet.
-                      </p>
-                    </div>
-
-                    <div class="card__content--img">
-                      <img src="img/img.svg" alt="news-image" />
-                    </div>
-                  </div>
-
-                  <div class="card__link">
-                    <a href="https://www.google.co.uk" target="_blank"
-                      >read more</a
-                    >
-                  </div>
-                </div>
+                <img src="img/wind-speed-icon.svg" alt="wind" />
               </div>
-              <div class="swiper-pagination"></div>
+              <div class="details__highlights--item">
+                <p>wind speed</p>
+                <h2 class="h2">7.70 <sup>km/h</sup></h2>
+
+                <img src="img/wind-speed-icon.svg" alt="wind" />
+              </div>
             </div>
           </div>
         </div>

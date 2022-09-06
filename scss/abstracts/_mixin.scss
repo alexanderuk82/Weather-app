@@ -36,7 +36,7 @@
   .card {
     padding: 3rem 1.5rem;
     width: 80%;
-    box-shadow: 0px 2px 4rem rgba(14, 49, 90, 0.049);
+    box-shadow: var(--box-shadow);
     border-radius: 1.8rem;
     margin: 4rem 0.5rem;
     margin-top: 1.9rem;

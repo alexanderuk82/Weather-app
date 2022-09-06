@@ -11,4 +11,40 @@
     @include titleSection;
     @include sliderCard;
   }
+  &__highlights {
+    @include titleSection;
+
+    &__container {
+      margin: 2.4rem 0;
+
+      display: grid;
+      justify-content: center;
+      row-gap: 2.3rem;
+    }
+
+    &--item {
+      box-shadow: var(--box-shadow);
+      padding: 1.4rem 2.2rem;
+      width: 25rem;
+      display: grid;
+
+      p {
+        font-size: map-get($fontSize, text-condition);
+        color: var(--dark-gray);
+        text-transform: capitalize;
+      }
+      h2 {
+        font-size: map-get($fontSize, text-h2);
+        font-weight: map-get($fontWeight, regular);
+
+        sup {
+          font-size: map-get($fontSize, text-condition);
+        }
+      }
+
+      img {
+        justify-self: self-end;
+      }
+    }
+  }
 }
