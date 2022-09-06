@@ -16,9 +16,9 @@
 
     &__container {
       margin: 2.4rem 0;
-
       display: grid;
-      justify-content: center;
+      grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+      justify-items: center;
       row-gap: 2.3rem;
     }
 
