@@ -27,15 +27,19 @@
       padding: 1.4rem 2.2rem;
       width: 25rem;
       display: grid;
+      row-gap: 0.9rem;
+      border-radius: 1.6rem;
 
       p {
-        font-size: map-get($fontSize, text-condition);
+        font-size: map-get($fontSize, textParagraph);
         color: var(--dark-gray);
         text-transform: capitalize;
       }
       h2 {
-        font-size: map-get($fontSize, text-h2);
+        font-size: map-get($fontSize, text-xlarge);
         font-weight: map-get($fontWeight, regular);
+        font-family: var(--numberFont);
+        text-align: center;
 
         sup {
           font-size: map-get($fontSize, text-condition);
@@ -44,6 +48,23 @@
 
       img {
         justify-self: self-end;
+      }
+
+      .time {
+        display: grid;
+        row-gap: 1rem;
+        &--times {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          p {
+            font-family: var(--numberFont);
+            font-size: map-get($fontSize, text-h4);
+            font-weight: map-get($fontWeight, medium);
+            color: var(--dark-blue);
+            text-transform: lowercase;
+          }
+        }
       }
     }
   }
