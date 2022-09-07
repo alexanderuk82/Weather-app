@@ -20,6 +20,11 @@
       grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
       justify-items: center;
       row-gap: 2.3rem;
+
+      @include responsive(tPortrait) {
+        grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
+       
+      }
     }
 
     &--item {

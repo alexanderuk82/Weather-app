@@ -9,9 +9,22 @@
 html {
   font-size: 62.5%;
   box-sizing: border-box;
+
+  @include responsive(tPortrait) {
+    font-size: 65.5%;
+  }
+  @include responsive(tdesktop) {
+    font-size: 73.5%;
+  }
 }
 
 body {
   font-family: var(--bodyFont);
   color: var(--dark-blue);
+}
+.container {
+  @include responsive(tPortrait) {
+    display: grid;
+    grid-template-columns: auto 1fr;
+  }
 }

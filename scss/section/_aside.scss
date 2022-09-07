@@ -8,6 +8,12 @@
     display: grid;
     row-gap: 2rem;
     align-content: start;
+    
+    @include responsive(tPortrait) {
+      height: 100%;
+      place-content: center;
+      row-gap: 4rem;
+    }
   }
 
   &__search {
@@ -130,6 +136,7 @@
 
         img {
           margin-left: 0.6rem;
+          margin-right: 2rem;
         }
       }
 
