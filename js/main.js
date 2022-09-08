@@ -84,11 +84,6 @@ function weatherDataAPI(content) {
 
   const result = document.createElement('div');
 
-  // Getting the date of the
-
-  // const days = moment().format('dddd');
-  // console.log(days);
-
   result.innerHTML = `
         
          <div class="weather__temperature__result">
