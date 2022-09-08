@@ -8,7 +8,7 @@
     display: grid;
     row-gap: 2rem;
     align-content: start;
-    
+
     @include responsive(tPortrait) {
       height: 100%;
       place-content: center;
@@ -87,6 +87,9 @@
           color: var(--blue);
           font-weight: map-get($fontWeight, bold);
         }
+      }
+      img {
+        width: 27rem;
       }
     }
   }

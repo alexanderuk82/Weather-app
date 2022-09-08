@@ -8,17 +8,7 @@ start();
 
 function start() {
   formulario.addEventListener('submit', citySearch);
-  // const myDate = new Date();
-
-  // const optionDay = {
-  //   weekday: 'long',
-  //   day: 'numeric',
-  //   hour: 'numeric',
-  //   minute: 'numeric',
-  // };
-  // console.log(new Intl.DateTimeFormat('en-UK', optionDay).format(myDate));
 }
-
 // function to search cities
 
 function citySearch(e) {
@@ -50,7 +40,9 @@ function weatherDataAPI(content) {
 
   const { address, timezone, description, resolvedAddress } = content;
 
-  const { datetime, temp,  } = content.currentConditions;
+  const { datetime, temp, icon } = content.currentConditions;
+
+  const tempCelcius = celcius(temp);
 
   const myDate = new Date();
 
@@ -88,8 +80,8 @@ function weatherDataAPI(content) {
   result.innerHTML = `
         
          <div class="weather__temperature__result">
-              <img src="img/cloudly-icon.svg" alt="" />
-              <h1 class="h1">${temp} <sup>&#8728;c</sup></h1>
+              <img src="img/icon-weather/${icon}.svg" alt="" />
+              <h1 class="h1">${tempCelcius} <sup>&#8728;c</sup></h1>
               <p>
                ${newDay},
 
@@ -204,15 +196,8 @@ function printMessage(error) {
   }
 }
 
-//function get Tiem ZoneName
+//Function to convert F to celcius and
 
-function getTimeZone(lat, long) {
-  const IDKey = '1bb114e49a504ed3ae8209ab4da0f000';
-  // const URL = `https://api.ipgeolocation.io/timezone?apiKey=${IDKey}&location-${newCity},${country} `;
-  const URL = `https://api.ipgeolocation.io/timezone?apiKey=${IDKey}&${lat}&${long}`;
-  console.log(URL);
-
-  fetch(URL)
-    .then((response) => response.json())
-    .then((data) => console.log(data));
+function celcius(celcius) {
+  return parseInt(((celcius - 32) * 5) / 9);
 }
