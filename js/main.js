@@ -8,6 +8,15 @@ start();
 
 function start() {
   formulario.addEventListener('submit', citySearch);
+  // const myDate = new Date();
+
+  // const optionDay = {
+  //   weekday: 'long',
+  //   day: 'numeric',
+  //   hour: 'numeric',
+  //   minute: 'numeric',
+  // };
+  // console.log(new Intl.DateTimeFormat('en-UK', optionDay).format(myDate));
 }
 
 // function to search cities
@@ -26,8 +35,8 @@ function citySearch(e) {
 //function read API response
 
 function weatherApi() {
-  const keyID = 'bf5d406b7fbe90761dc05f9369e465d0';
-  const URL = `https://api.openweathermap.org/data/2.5/weather?q=${city.value}&appid=${keyID}`;
+  const keyID = 'D76WGUH5XLAGDRWGZDRV46A6L';
+  const URL = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${newCity}?key=${keyID}`;
 
   fetch(URL)
     .then((response) => response.json())
@@ -39,35 +48,27 @@ function weatherApi() {
 function weatherDataAPI(content) {
   cleanHtml();
 
-  // general Data
-  const { name, cod, timezone, dt } = content;
+  const { address, timezone, description, resolvedAddress } = content;
 
-  //Data from MAIN information
-  const { temp } = content.main;
-
-  const celcius = parseInt(temp - 273.15);
-
-  //DAta to get country and sunset
-  const { country, sunrise, sunset } = content.sys;
+  const { datetime, temp,  } = content.currentConditions;
 
   const myDate = new Date();
 
   const optionDay = {
     weekday: 'long',
     day: 'numeric',
+    timeZone: timezone,
   };
-  const optionYear = { year: 'numeric' };
-  const finalDay = new Intl.DateTimeFormat('en-UK', optionDay).format(myDate);
-  const finalYear = new Intl.DateTimeFormat('en-UK', optionYear).format(myDate);
+  const newDay = new Intl.DateTimeFormat('en-UK', optionDay).format(myDate);
+  const optionTime = {
+    hour: 'numeric',
+    minute: 'numeric',
+    timeZone: timezone,
+  };
+  const newTime = new Intl.DateTimeFormat('en-UK', optionTime).format(myDate);
 
-  newCountry = country;
+  // newCountry = country;
   //   newsApi();
-
-  //Data to get the winds details
-  const { speed } = content.wind;
-
-  //Data to get main weather condition icon
-  const { main, description } = content.weather[0];
 
   //Layout and structure fields
 
@@ -77,7 +78,7 @@ function weatherDataAPI(content) {
 
        <div class="weather__temperature__location">
            <img src="img/pin.svg" alt="location" />
-           <p>${newCity}, ${country} </p>
+           <p>${resolvedAddress} </p>
        </div>      
       
       `;
@@ -88,11 +89,11 @@ function weatherDataAPI(content) {
         
          <div class="weather__temperature__result">
               <img src="img/cloudly-icon.svg" alt="" />
-              <h1 class="h1">${celcius} <sup>&#8728;c</sup></h1>
+              <h1 class="h1">${temp} <sup>&#8728;c</sup></h1>
               <p>
-               ${finalDay},
+               ${newDay},
 
-                <span> ${finalYear} </span>
+                <span> ${newTime} </span>
               </p>
         </div>
 
@@ -201,4 +202,17 @@ function printMessage(error) {
       weatherContainer.removeChild(message);
     }, 2700);
   }
+}
+
+//function get Tiem ZoneName
+
+function getTimeZone(lat, long) {
+  const IDKey = '1bb114e49a504ed3ae8209ab4da0f000';
+  // const URL = `https://api.ipgeolocation.io/timezone?apiKey=${IDKey}&location-${newCity},${country} `;
+  const URL = `https://api.ipgeolocation.io/timezone?apiKey=${IDKey}&${lat}&${long}`;
+  console.log(URL);
+
+  fetch(URL)
+    .then((response) => response.json())
+    .then((data) => console.log(data));
 }
