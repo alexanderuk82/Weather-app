@@ -31,7 +31,8 @@ function weatherApi() {
 
   fetch(URL)
     .then((response) => response.json())
-    .then((data) => weatherDataAPI(data));
+    .then((data) => weatherDataAPI(data))
+    .catch((error) => printMessage('😒 Not result with your searching. Please try again.'))
 }
 
 // Data Waether fromAPI
