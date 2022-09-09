@@ -18,6 +18,7 @@ function citySearch(e) {
   } else {
     newCity = city.value;
     weatherApi();
+
     formulario.reset();
   }
 }
@@ -27,20 +28,28 @@ function citySearch(e) {
 function weatherApi() {
   const keyID = 'D76WGUH5XLAGDRWGZDRV46A6L';
   const URL = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${newCity}?key=${keyID}`;
-
+  
   fetch(URL)
-    .then((response) => response.json())
-    .then((data) => weatherDataAPI(data));
+  .then((response) => response.json())
+  .then((data) => weatherDataAPI(data));
 }
 
 // Data Waether fromAPI
 
 function weatherDataAPI(content) {
   cleanHtml();
-
+  // newsApi();
+  console.log(content);
   const { address, timezone, description, resolvedAddress } = content;
 
-  const { datetime, temp, icon } = content.currentConditions;
+  newCity = resolvedAddress;
+
+  const { datetime, temp, icon, conditions } = content.currentConditions;
+
+  const { tempmax, tempmin } = content.days[0];
+
+  const max = celcius(tempmax);
+  const min = celcius(tempmin);
 
   const tempCelcius = celcius(temp);
 
@@ -91,29 +100,84 @@ function weatherDataAPI(content) {
 
   `;
 
+  const weatherApprox = document.querySelector('.weather__approx');
+
+  const condition1 = document.createElement('div');
+  condition1.classList.add('weather__approx__condition');
+  condition1.innerHTML = `
+  
+  <img src="img/icon-weather/${icon}.svg" alt="cloudly" />
+  <p>${icon}</p>
+  
+  `;
+  const condition2 = document.createElement('div');
+  condition2.classList.add('weather__approx__condition');
+  condition2.innerHTML = `
+
+            <img src="img/icon-weather/${icon}.svg" alt="conditions" />
+            <p>Conditions: <span>${conditions}</span></p>
+  
+  `;
+
+  weatherApprox.appendChild(condition1);
+  weatherApprox.appendChild(condition2);
+
+  const maxMin = document.querySelector('.weather__maxMin');
+
+  const maxTemp = document.createElement('div');
+  maxTemp.classList.add('weather__maxMin--value');
+
+  maxTemp.innerHTML = `
+    
+          <p> temperature max:
+
+           <img src="img/bx-up-arrow-circle.svg" alt="" />
+          </p>
+
+        <span> ${max} <img src="img/celsius.svg" alt="celcius" /> </span>
+    
+    
+    `;
+  const minTemp = document.createElement('div');
+  minTemp.classList.add('weather__maxMin--value');
+
+  minTemp.innerHTML = `
+    
+          <p> temperature min:
+
+           <img src="img/bx-up-arrow-circle-2.svg" alt="" />
+          </p>
+
+        <span> ${min} <img src="img/celsius.svg" alt="celcius" /> </span>
+    
+    
+    `;
+
+  maxMin.appendChild(maxTemp);
+  maxMin.appendChild(minTemp);
+
   //   Appenchild for data
 
   leftSide.appendChild(location);
   leftSide.appendChild(result);
+  leftSide.appendChild(weatherApprox);
+  leftSide.appendChild(maxMin);
 }
 
 //function read API from news
 
 function newsApi() {
-  const options = {
-    method: 'GET',
-    headers: {
-      'X-RapidAPI-Key': 'fa8acf2c65mshb42938ea644383bp1216f8jsn5311ae779480',
-      'X-RapidAPI-Host': 'google-news1.p.rapidapi.com',
-    },
-  };
+  setTimeout(() => {
+    const URLnews = `https://api.newscatcherapi.com/v2/search?q='${newCity}&page_size=3`;
 
-  fetch(
-    `https://google-news1.p.rapidapi.com/search?q=${city.value}&country=${newCountry}&lang=en-US&when=30d&limit=3`,
-    options
-  )
-    .then((response) => response.json())
-    .then((data) => printNews(data));
+    fetch(URLnews, {
+      headers: {
+        'x-api-key': 'BLjlJqvhhcEoo-mahUkdydo-eY2309ZV7xVA6sE3BhY',
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => console.log(data));
+  }, 2000);
 }
 
 //Funcion to print the news from API

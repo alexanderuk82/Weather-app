@@ -51,6 +51,8 @@
   }
 
   &__temperature {
+    display: grid;
+    row-gap: 2rem;
     &__location {
       display: flex;
       font-size: map-get($fontSize, text-medium);
@@ -114,6 +116,9 @@
         span {
           font-size: map-get($fontSize, text-h4);
         }
+      }
+      img {
+        width: 5rem;
       }
     }
   }
