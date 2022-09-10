@@ -13,9 +13,6 @@ html {
   @include responsive(tPortrait) {
     font-size: 65.5%;
   }
-  @include responsive(tdesktop) {
-    font-size: 73.5%;
-  }
 }
 
 body {
