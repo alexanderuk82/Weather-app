@@ -1,7 +1,7 @@
 <h1>Weather Web app(responsive)</h1>
 <h2>What does contains?</h2>
 
-<p>THis is a creative and stylish web app for weathercast</p>
+<p>THis is a creative and stylish web app for weathercast and live news by your searching</p>
 <p>And I implementing a nice animation using lotties</p>
 
 <h2>What I used for this?</h2>
