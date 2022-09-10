@@ -5,7 +5,6 @@ const weatherContainer = document.querySelector('.weather__container');
 const slider = document.querySelector('#news');
 const highlight = document.querySelector('.details__highlights');
 
-
 const lottiesContainer = document.querySelectorAll('.lotties');
 
 let newCountry;
@@ -16,7 +15,7 @@ start();
 
 function start() {
   formulario.addEventListener('submit', citySearch);
-  lotties()
+  lotties();
 }
 // function to search cities
 
@@ -30,10 +29,9 @@ function citySearch(e) {
     formulario.reset();
     weatherContainer.classList.remove('heightFull');
 
-    lottiesContainer.forEach(lotties => {
-
+    lottiesContainer.forEach((lotties) => {
       lotties.classList.add('hidden');
-    })
+    });
   }
 }
 
@@ -47,10 +45,8 @@ function weatherApi() {
     .then((response) => response.json())
     .then((data) => weatherDataAPI(data))
     .catch((error) =>
-    printMessage('😒 Not result with your searching. Please try again.')
-  
+      printMessage('😒 Not result with your searching. Please try again.')
     );
-   
 }
 
 // Data Waether fromAPI
@@ -75,6 +71,8 @@ function weatherDataAPI(content) {
     sunset,
     windspeed,
   } = content.currentConditions;
+
+  const newPressure = parseInt(pressure);
 
   const { tempmax, tempmin } = content.days[0];
 
@@ -162,7 +160,7 @@ function weatherDataAPI(content) {
   leftSide.appendChild(location);
   leftSide.appendChild(result);
 
-  higlights(humidity, feelslike, pressure, sunrise, sunset, windspeed);
+  higlights(humidity, feelslike, newPressure, sunrise, sunset, windspeed);
 }
 
 // Function Highlight weather
@@ -327,14 +325,10 @@ function printMessage(error) {
   }
 }
 
-
 //Function lottiesContainer
 
-
-function lotties (){
-
-  lottiesContainer.forEach(lotties => {
-
+function lotties() {
+  lottiesContainer.forEach((lotties) => {
     const lottie = bodymovin.loadAnimation({
       container: lotties,
       renderer: 'svg',
@@ -342,10 +336,7 @@ function lotties (){
       autoplay: true,
       path: 'https://assets10.lottiefiles.com/private_files/lf30_fn9xcfqg.json',
     });
-
-  })
-
-
+  });
 }
 
 //Function to convert F to celcius and
