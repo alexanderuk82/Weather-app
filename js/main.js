@@ -5,10 +5,8 @@ const slider = document.querySelector('#news');
 const highlight = document.querySelector('.details__highlights');
 
 const weatherContainer = document.querySelector('.weather__container');
-const titleHighlight = document.querySelector('.details__highlights');
-const titleNews = document.querySelector('.details__news');
+const detailsContainer = document.querySelector('.details__container');
 
-weatherContainer.style.height = '100vh';
 
 let newCountry;
 let newCity;
@@ -27,10 +25,8 @@ function citySearch(e) {
   } else {
     newCity = city.value;
     weatherApi();
-    weatherContainer.style.height = '100%';
-    titleHighlight.classList.remove('hidden');
-    titleNews.classList.remove('hidden');
     formulario.reset();
+    
   }
 }
 
@@ -163,6 +159,7 @@ function weatherDataAPI(content) {
 // Function Highlight weather
 
 function higlights(humidity, feelslike, pressure, sunrise, sunset, windspeed) {
+  cleanHtml(highlight);
   const theFeelsLike = celcius(feelslike);
 
   const highlightContainer = document.createElement('div');
