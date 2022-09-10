@@ -5,6 +5,7 @@
 
   &__container {
     padding-inline: 2rem;
+    @include titleSection;
   }
 
   &__news {
@@ -12,7 +13,6 @@
     @include sliderCard;
   }
   &__highlights {
-    @include titleSection;
 
     &__container {
       margin: 2.4rem 0;

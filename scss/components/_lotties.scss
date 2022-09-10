@@ -1,0 +1,20 @@
+@use '../abstracts/' as *;
+
+.lotties {
+  margin-top: 2rem;
+  text-align: center;
+  h5 {
+    font-size: map-get($fontSize, text-condition);
+    color: var(--dark-gray);
+    text-align: center;
+  }
+
+  svg {
+    margin-top: 5rem;
+    width: 30rem !important;
+
+    @include responsive(tPortrait) {
+      width: 40rem !important;
+    }
+  }
+}

@@ -1,20 +1,22 @@
 const formulario = document.querySelector('.weather__search');
 const city = document.querySelector('.weather__search--input');
 const leftSide = document.querySelector('.weather__temperature');
+const weatherContainer = document.querySelector('.weather__container');
 const slider = document.querySelector('#news');
 const highlight = document.querySelector('.details__highlights');
 
-const weatherContainer = document.querySelector('.weather__container');
-const detailsContainer = document.querySelector('.details__container');
 
+const lottiesContainer = document.querySelectorAll('.lotties');
 
 let newCountry;
 let newCity;
 
+weatherContainer.classList.add('heightFull');
 start();
 
 function start() {
   formulario.addEventListener('submit', citySearch);
+  lotties()
 }
 // function to search cities
 
@@ -26,7 +28,12 @@ function citySearch(e) {
     newCity = city.value;
     weatherApi();
     formulario.reset();
-    
+    weatherContainer.classList.remove('heightFull');
+
+    lottiesContainer.forEach(lotties => {
+
+      lotties.classList.add('hidden');
+    })
   }
 }
 
@@ -40,8 +47,10 @@ function weatherApi() {
     .then((response) => response.json())
     .then((data) => weatherDataAPI(data))
     .catch((error) =>
-      printMessage('😒 Not result with your searching. Please try again.')
+    printMessage('😒 Not result with your searching. Please try again.')
+  
     );
+   
 }
 
 // Data Waether fromAPI
@@ -316,6 +325,27 @@ function printMessage(error) {
       weatherContainer.removeChild(message);
     }, 2700);
   }
+}
+
+
+//Function lottiesContainer
+
+
+function lotties (){
+
+  lottiesContainer.forEach(lotties => {
+
+    const lottie = bodymovin.loadAnimation({
+      container: lotties,
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      path: 'https://assets10.lottiefiles.com/private_files/lf30_fn9xcfqg.json',
+    });
+
+  })
+
+
 }
 
 //Function to convert F to celcius and
