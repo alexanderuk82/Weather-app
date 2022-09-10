@@ -2,6 +2,14 @@ const formulario = document.querySelector('.weather__search');
 const city = document.querySelector('.weather__search--input');
 const leftSide = document.querySelector('.weather__temperature');
 const slider = document.querySelector('#news');
+const highlight = document.querySelector('.details__highlights');
+
+const weatherContainer = document.querySelector('.weather__container');
+const titleHighlight = document.querySelector('.details__highlights');
+const titleNews = document.querySelector('.details__news');
+
+weatherContainer.style.height = '100vh';
+
 let newCountry;
 let newCity;
 
@@ -19,6 +27,9 @@ function citySearch(e) {
   } else {
     newCity = city.value;
     weatherApi();
+    weatherContainer.style.height = '100%';
+    titleHighlight.classList.remove('hidden');
+    titleNews.classList.remove('hidden');
     formulario.reset();
   }
 }
@@ -32,7 +43,9 @@ function weatherApi() {
   fetch(URL)
     .then((response) => response.json())
     .then((data) => weatherDataAPI(data))
-    .catch((error) => printMessage('😒 Not result with your searching. Please try again.'))
+    .catch((error) =>
+      printMessage('😒 Not result with your searching. Please try again.')
+    );
 }
 
 // Data Waether fromAPI
@@ -45,7 +58,18 @@ function weatherDataAPI(content) {
   newCity = resolvedAddress;
   newsApi();
 
-  const { datetime, temp, icon, conditions } = content.currentConditions;
+  const {
+    datetime,
+    temp,
+    icon,
+    conditions,
+    humidity,
+    feelslike,
+    pressure,
+    sunrise,
+    sunset,
+    windspeed,
+  } = content.currentConditions;
 
   const { tempmax, tempmin } = content.days[0];
 
@@ -69,7 +93,7 @@ function weatherDataAPI(content) {
   };
   const newTime = new Intl.DateTimeFormat('en-UK', optionTime).format(myDate);
 
-  //Layout and structure fields
+  //Layout and structure fields left side
 
   const location = document.createElement('div');
 
@@ -132,6 +156,75 @@ function weatherDataAPI(content) {
 
   leftSide.appendChild(location);
   leftSide.appendChild(result);
+
+  higlights(humidity, feelslike, pressure, sunrise, sunset, windspeed);
+}
+
+// Function Highlight weather
+
+function higlights(humidity, feelslike, pressure, sunrise, sunset, windspeed) {
+  const theFeelsLike = celcius(feelslike);
+
+  const highlightContainer = document.createElement('div');
+
+  highlightContainer.classList.add('details__highlights__container');
+
+  highlightContainer.innerHTML = `
+  
+  <!-- Wind speed -->
+  <div class="details__highlights--item">
+    <p>wind speed</p>
+    <h2 class="h2">${windspeed} <sup>km/h</sup></h2>
+
+    <img src="img/wind-speed-icon.svg" alt="wind" />
+  </div>
+  <!-- Suunrise /sunset -->
+  <div class="details__highlights--item">
+    <p>sunrise / sunset</p>
+    <div class="time">
+      <div class="time--times">
+        <img src="img/sunrise-icon.svg" alt="sunrise" />
+        <p>${sunrise}</p>
+      </div>
+      <div class="time--times">
+        <img src="img/sunset-icon.svg" alt="sunrise" />
+        <p>${sunset}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Humidity -->
+
+  <div class="details__highlights--item">
+    <p>humidity</p>
+    <h2 class="h2">${humidity} %</h2>
+
+    <img src="img/humidity-icon.svg" alt="humidity" />
+  </div>
+
+  <!-- feel like -->
+
+  <div class="details__highlights--item">
+    <p>Feels Like</p>
+    <h2 class="h2">
+      ${theFeelsLike}
+      <sup>
+        <img src="img/celcius-black-icon.svg" width="38" alt="" />
+      </sup>
+    </h2>
+  </div>
+
+  <!-- pressure -->
+  <div class="details__highlights--item">
+    <p>Pressure</p>
+    <h2 class="h2">${pressure} <sup>hpa</sup></h2>
+
+    <img src="img/thermometer.svg" alt="wind" />
+  </div> 
+  
+  
+  `;
+  highlight.appendChild(highlightContainer);
 }
 
 //function read API from news
